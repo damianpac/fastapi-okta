@@ -5,5 +5,7 @@ venv
 # IDE cache
 __pycache__
 
+.gitattributes
+
 # temp ignore
 .env
