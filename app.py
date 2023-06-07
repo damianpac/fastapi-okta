@@ -2,6 +2,8 @@ from fastapi import FastAPI, Depends, HTTPException, Request
 from fastapi.security import OAuth2PasswordBearer
 from starlette.config import Config
 
+from utils import VerifyToken
+
 from pydantic import BaseModel
 from typing import List
 
@@ -36,8 +38,13 @@ def retrieve_token(authorization, issuer):
         raise HTTPException(status_code=400, detail=response.text)
 
 def validate_token(token: str = Depends(oauth2_scheme)):
-    # To do, add logic
-    return True
+    """
+    If token correctly validated then verify() should return Issuer (iss).
+    """
+    if VerifyToken(token=token).verify()['iss']:
+        return True
+    else:
+        return False
 
 class Item(BaseModel):
     id: int
