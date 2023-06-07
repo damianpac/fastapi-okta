@@ -1,0 +1,9 @@
+# virtual envs
+env
+venv
+
+# IDE cache
+__pycache__
+
+# temp ignore
+.env
