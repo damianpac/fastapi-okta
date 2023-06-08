@@ -1,4 +1,4 @@
-import jwt
+import jwt # pyJWT
 from starlette.config import Config
 
 
