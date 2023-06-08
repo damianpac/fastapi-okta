@@ -1,13 +1,16 @@
-import jwt
+import jwt # pyJWT
 from starlette.config import Config
 
 
 def configure():
-    config = Config('.env')
-    return config
+    return Config('.env')
 
 class VerifyToken():
-    """Does all the token verification using PyJWT"""
+    """
+    Does all the token verification using PyJWT. 
+    
+    (Forked from https://github.com/jtemporal/fastapi-and-auth0/tree/main)
+    """
 
     def __init__(self, token, permissions=None, scopes=None):
         self.token = token

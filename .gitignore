@@ -4,6 +4,7 @@ venv
 
 # IDE cache
 __pycache__
+.vscode
 
 .gitattributes
 
